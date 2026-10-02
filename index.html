@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TESL D: My Family</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<header><div class="logo">TESL <b>D</b></div><div class="subject">MY FAMILY · WRITING</div></header>
+
+<section id="home" class="screen active">
+  <div class="home-card">
+    <div class="badge">✎ WRITING WORKSHOP</div>
+    <h1>Describe<br><span>Your Family</span></h1>
+    <p>Learn step by step how to describe a family member, then build your own short description.</p>
+    <button class="primary" onclick="start()">START →</button>
+    <div class="route"><span>1 WHO?</span><i>→</i><span>2 LOOKS</span><i>→</i><span>3 PERSONALITY</span><i>→</i><span>4 DETAILS</span><i>→</i><span>5 WRITE</span></div>
+  </div>
+</section>
+
+<section id="member" class="screen">
+  <div class="stage">
+    <div class="stage-title"><span>01</span><div><p>STEP 1</p><h2>Who are you describing?</h2></div></div>
+    <p class="instruction">Choose one family member to write about.</p>
+    <div class="choices big" id="memberChoices"></div>
+  </div>
+</section>
+
+<section id="appearance" class="screen">
+  <div class="stage">
+    <div class="stage-title"><span>02</span><div><p>STEP 2</p><h2>What do they look like?</h2></div></div>
+    <p class="instruction">Choose <b>two</b> details about their appearance.</p>
+    <div class="choices" id="appearanceChoices"></div>
+    <div class="chosen" id="appearanceChosen">Choose 2 details</div>
+    <button class="primary continue" id="appearanceNext" disabled onclick="goPersonality()">CONTINUE →</button>
+  </div>
+</section>
+
+<section id="personality" class="screen">
+  <div class="stage">
+    <div class="stage-title"><span>03</span><div><p>STEP 3</p><h2>What are they like?</h2></div></div>
+    <p class="instruction">Choose <b>two</b> personality words.</p>
+    <div class="choices" id="personalityChoices"></div>
+    <div class="chosen" id="personalityChosen">Choose 2 words</div>
+    <button class="primary continue" id="personalityNext" disabled onclick="goDetails()">CONTINUE →</button>
+  </div>
+</section>
+
+<section id="details" class="screen">
+  <div class="stage">
+    <div class="stage-title"><span>04</span><div><p>STEP 4</p><h2>Tell us more</h2></div></div>
+    <p class="instruction">Choose one activity, job or extra detail.</p>
+    <div class="choices" id="detailChoices"></div>
+    <div class="chosen" id="detailChosen">Choose 1 detail</div>
+    <button class="primary continue" id="detailNext" disabled onclick="goBuild()">BUILD SENTENCES →</button>
+  </div>
+</section>
+
+<section id="build" class="screen">
+  <div class="stage">
+    <div class="stage-title"><span>05</span><div><p>STEP 5</p><h2>Build your sentences</h2></div></div>
+    <p class="instruction">Choose the correct sentence for each part of your description.</p>
+    <div class="sentence-task">
+      <label>INTRODUCE THEM</label><div id="introOptions" class="sentence-options"></div>
+    </div>
+    <div class="sentence-task">
+      <label>DESCRIBE THEM</label><div id="descOptions" class="sentence-options"></div>
+    </div>
+    <button class="primary continue" id="buildNext" disabled onclick="goFinal()">SEE MY DESCRIPTION →</button>
+  </div>
+</section>
+
+<section id="final" class="screen">
+  <div class="final-layout">
+    <div>
+      <p class="eyebrow">YOUR FAMILY DESCRIPTION</p>
+      <h2>Great! Put it all together.</h2>
+      <p class="instruction">Here is an example of how your ideas can become a short paragraph.</p>
+      <div class="paragraph" id="paragraph"></div>
+    </div>
+    <div class="check-card">
+      <h3>Writing checklist</h3>
+      <div>✓ Introduced the family member</div>
+      <div>✓ Used describing words</div>
+      <div>✓ Added an activity or detail</div>
+      <div>✓ Used complete sentences</div>
+      <div>✓ Used capital letters and full stops</div>
+      <button class="primary" onclick="finish()">FINISH →</button>
+    </div>
+  </div>
+</section>
+
+<section id="result" class="screen">
+  <div class="result">
+    <div class="trophy">🏆</div>
+    <p class="eyebrow">TESL D · WRITING COMPLETE</p>
+    <h2>Family Description Builder</h2>
+    <div class="score" id="finalScore">0 / 5</div>
+    <p id="resultText"></p>
+    <button class="primary" onclick="start()">TRY AGAIN</button>
+    <button class="secondary" onclick="show('home')">MAIN MENU</button>
+  </div>
+</section>
+
+<footer>TESL D · PISMP · IPGKBA</footer>
+<script src="game.js"></script>
+</body>
+</html>
